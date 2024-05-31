@@ -14,6 +14,13 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Debug Environment Variables
+        run: |
+          echo "HF_USERNAME: ${{ secrets.HF_USERNAME }}"
+          echo "SPACE_NAME: ${{ secrets.SPACE_NAME }}"
+        env:
+          HF_USERNAME: ${{ secrets.HF_USERNAME }}
+          SPACE_NAME: ${{ secrets.SPACE_NAME }}
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
